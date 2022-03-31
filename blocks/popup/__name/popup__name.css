@@ -4,7 +4,7 @@
   border: 0;
   min-width: 358px;
 
-  border-bottom: solid ;
+  border-bottom: solid;
 }
 @media screen and (max-width: 620px) {  
   .popup__name { 
