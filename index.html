@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./index.css">
   </head>
   <body class="page">
@@ -15,16 +15,8 @@
     <main>
       <section class="profile">
         <img class="profile__avatar" alt="Ив-Кусто" src="./images/Iv.jpg">
-        <div class="popup">
-          <div class="popup__container">
-            <p class="popup__text">Редактировать профиль</p>
-            <input class="popup__name" type="text"> </br>
-            <input class="popup__description" type="text">
-          </div>
-        </div>
         <div class="profile__text">
-          <p class="profile__name">
-            Жак-Ив Кусто <button class="opacity profile__edit-button"></button>
+          <p class="profile__name">Жак-Ив Кусто<button class="opacity profile__edit-button"></button>
           </p>
           <p class="profile__description">Исследователь океана</p>
         </div>
@@ -33,45 +25,45 @@
       <section>
         <ul class="places">
           <li class="place">
-            <img class="place__image" src="./images/Karavhaevsk-1.png">
+            <img class="place__image" alt ="Фотокарточка"src="./images/Karavhaevsk-1.png">
             <div class="place__name">
               <p class="place__text">Карачаевск</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
           <li class="place">
-            <img class="place__image" src="./images/Gora-elbrus.png">
+            <img class="place__image" alt ="Фотокарточка" src="./images/Gora-elbrus.png">
             <div class="place__name">
               <p class="place__text">Гора Эльбрус</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
           <li class="place">
-            <img class="place__image" src="./images/Dombay.jpg">
+            <img class="place__image" alt ="Фотокарточка" src="./images/Dombay.jpg">
             <div class="place__name">
               <p class="place__text">Домбай</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
           <li class="place">
-            <img class="place__image" src="./images/Gora-elrbruss.png">
+            <img class="place__image" alt ="Фотокарточка" src="./images/Gora-elrbruss.png">
             <div class="place__name">
               <p class="place__text">Гора Эльбрус</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
           <li class="place">
-            <img class="place__image" src="./images/Dombai.png">
+            <img class="place__image" alt ="Фотокарточка" src="./images/Dombai.png">
             <div class="place__name">
               <p class="place__text">Домбай</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
           <li class="place">
-            <img class="place__image" src="./images/Karavhaevsk.png">
+            <img class="place__image" alt ="Фотокарточка" src="./images/Karavhaevsk.png">
             <div class="place__name">
               <p class="place__text">Карачаево-Черкессия</p>
-              <img class="place__heart opacity" src="./images/heart.svg">
+              <img class="place__heart opacity" alt="Сердечко" src="./images/heart.svg">
             </div>
           </li>
         </ul>
@@ -80,5 +72,15 @@
     <footer>
       <p class="footer__copyright">&#169; 2022 Mesto Russia</p>
     </footer>
+    <div class="popup">
+      <form class="popup__container">
+        <button class="popup__close opacity" type="button"></button>
+        <p class="popup__text">Редактировать профиль</p>
+        <input class="popup__name" type="text"> <br>
+        <input class="popup__description" type="text">
+        <button class="popup__submit-button opacity" type="submit"></button>
+      </form>
+      </div>
+      <script src="./blocks/scripts/index.js"></script>
   </body>
 </html>

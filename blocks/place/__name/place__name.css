@@ -1,0 +1,12 @@
+
+.place__name {
+  max-width: 260px;
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 620px) {
+  .place__name {
+    max-width: 263px;
+  }
+}

@@ -1,0 +1,11 @@
+.place__text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 246px;
+  max-height: 26px;
+  margin: 19px 15px 31px 21px;
+  max-width: 246px;
+  max-height: 33px;
+  margin: 19px 15px 31px 21px;
+}

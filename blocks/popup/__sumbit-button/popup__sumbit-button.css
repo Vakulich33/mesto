@@ -1,0 +1,16 @@
+.popup__submit-button {
+  background-image: url(../../../images/Submit-Button.svg);
+  min-width: 358px;
+  margin-top: 45px;
+  min-height: 50px;
+  margin-left: 35px;
+}
+@media screen and (max-width: 620px) {
+  .popup__submit-button {
+    background-image: url(../../../images/Submit-button620.svg);
+    min-width: 238px;
+    margin-top: 45px;
+    min-height: 46px;
+    margin-left: 22px;
+  }
+}
