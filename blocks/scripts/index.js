@@ -14,11 +14,12 @@ const nameProfile = document.querySelector('.profile__name');
 const descripProfile = document.querySelector('.profile__description');
 nameInput.value = nameProfile.textContent;
 descripInput.value = descripProfile.textContent;
-function onSumbit (e) {
+function onSubmit (e) {
     e.preventDefault();
-    Exit();
     nameProfile.textContent = nameInput.value;
     descripProfile.textContent = descripInput.value;
- console.log(nameInput);
+
 }
-myForm.addEventListener('sumbit', onSumbit);
+myForm.addEventListener('submit', onSubmit);
+const popupSubmit = document.querySelector('.popup__submit-button');
+popupSubmit.addEventListener('click', togglePopup);
