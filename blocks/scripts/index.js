@@ -5,7 +5,6 @@ function togglePopup () {
 modalWindow.classList.toggle('popup_active')
 }
 profileEdit.addEventListener('click', togglePopup);
-
 closeButton.addEventListener('click', togglePopup);
 const myForm = document.querySelector('.popup__container');
 const nameInput = document.querySelector('.popup__name');
@@ -18,7 +17,6 @@ function onSubmit (e) {
     e.preventDefault();
     nameProfile.textContent = nameInput.value;
     descripProfile.textContent = descripInput.value;
-
 }
 myForm.addEventListener('submit', onSubmit);
 const popupSubmit = document.querySelector('.popup__submit-button');

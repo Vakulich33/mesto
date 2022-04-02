@@ -1,11 +1,16 @@
 .profile__description {
+  grid-area: discription;
   max-width: 350px;
-  margin: 7px 0 0 0;
+  margin: 0 0 12px 0;
   font-size: 18px;
   line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 @media screen and (max-width: 620px) {
   .profile__description {
+    margin: 8px 0px 12px 37px;
     max-width: 350px;
     font-weight: 400;
     font-size: 14px;
