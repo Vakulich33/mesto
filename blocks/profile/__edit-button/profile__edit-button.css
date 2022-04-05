@@ -9,6 +9,7 @@
   max-height: 24px;
   background-color: transparent;
   cursor: pointer;
+  border: 0;
 }
 @media screen and (max-width: 620px) {
   .profile__edit-button {

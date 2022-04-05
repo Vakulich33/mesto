@@ -4,9 +4,12 @@
   border: 0;
   min-width: 358px;
   border-bottom: solid rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  line-height: 17px;
 }
-@media screen and (max-width: 620px) {  
-  .popup__name { 
-  margin: 54px 0 0 22px;
-  min-width: 238px;}
+@media screen and (max-width: 620px) {
+  .popup__name {
+    margin: 54px 0 0 22px;
+    min-width: 238px;
+  }
 }

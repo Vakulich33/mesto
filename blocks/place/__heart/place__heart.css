@@ -1,3 +1,8 @@
 .place__heart {
+  background-image: url(../../../images/heart.svg);
   cursor: pointer;
+  min-width: 22px;
+  min-height: 19px;
+  border: 0;
+  background-color: transparent;
 }

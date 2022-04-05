@@ -1,6 +1,8 @@
 .profile__name {
   grid-area: name;
-  max-width: 290px;
+  max-width: 300px;
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 500;
   margin: 0;
   font-size: 42px;
