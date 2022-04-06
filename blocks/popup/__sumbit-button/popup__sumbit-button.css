@@ -7,6 +7,9 @@
   cursor: pointer;
   border: 0;
 }
+.popup__submit-button:hover {
+opacity: 0.6;
+}
 @media screen and (max-width: 620px) {
   .popup__submit-button {
     background-image: url(../../../images/Submit-button620.svg);

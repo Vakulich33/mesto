@@ -6,8 +6,6 @@ const nameInput = document.querySelector(".popup__name");
 const descripInput = document.querySelector(".popup__description");
 const nameProfile = document.querySelector(".profile__name");
 const descripProfile = document.querySelector(".profile__description");
-const popupSubmit = document.querySelector(".popup__submit-button");
-
 function togglePopup() {
   modalWindow.classList.toggle("popup_active");
 if (modalWindow.classList.contains("popup_active")) {

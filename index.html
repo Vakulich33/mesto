@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./vendor/normalize.css">
-    <link rel="stylesheet" href="./vendor/index.css">
+    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <header class="header">
@@ -16,10 +15,10 @@
         <img class="profile__avatar" alt="Ив-Кусто" src="./images/Iv.jpg">
         <div class="profile__text">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="opacity profile__edit-button"></button>
+          <button class="profile__edit-button" type="button"></button>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <button class="profile__add-button opacity"></button>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section>
         <ul class="places">
@@ -97,12 +96,12 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close opacity" type="button"></button>
+        <button class="popup__close" type="button"></button>
         <h2 class="popup__text">Редактировать профиль</h2>
         <form name="submit-form" method="post">
         <input class="popup__name" name="profile-name" type="text" placeholder="Имя">
         <input class="popup__description" name="profile-description" type="text" placeholder="О себе">
-        <button class="popup__submit-button opacity" type="submit"></button>
+        <button class="popup__submit-button" type="submit"></button>
         </form>
       </div>
     </div>
