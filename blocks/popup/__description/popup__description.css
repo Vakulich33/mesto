@@ -1,11 +1,14 @@
 .popup__description {
   margin: 36px 0 0 36px;
+  font-size: 14px;
+  line-height: 17px;
   border: 0;
   min-width: 358px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-@media screen and (max-width: 620px) {  
-  .popup__description { 
-  margin: 54px 0 0 22px;
-  min-width: 238px;}
+@media screen and (max-width: 620px) {
+  .popup__description {
+    margin: 54px 0 0 22px;
+    min-width: 238px;
+  }
 }

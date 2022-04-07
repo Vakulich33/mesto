@@ -25,5 +25,5 @@
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__sumbit-button/popup__sumbit-button.css);
 @import url(../blocks/popup/_active/popup_active.css);
-@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/opacity/opacity.css);
