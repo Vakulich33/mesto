@@ -22,72 +22,6 @@
       </section>
       <section>
         <ul class="places">
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Karavhaevsk-1.png"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Карачаевск</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Gora-elbrus.png"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Гора Эльбрус</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Dombay.jpg"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Домбай</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Gora-elrbruss.png"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Гора Эльбрус</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Dombai.png"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Домбай</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img
-              class="place__image"
-              alt="Фотокарточка"
-              src="./images/Karavhaevsk.png"
-           >
-            <div class="place__name">
-              <h2 class="place__text">Карачаево-Черкессия</h2>
-              <button class="place__heart opacity" type="button"></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -105,6 +39,36 @@
         </form>
       </div>
     </div>
+    <div class="popup popup_add">
+      <div class="popup__container popup__container_add">
+        <button class="popup__close popup__close_add" type="button"></button>
+        <h2 class="popup__text popup__text_add">Новое место</h2>
+        <form name="submit-form_add" method="post">
+        <input class="popup__name popup__name_add" name="card-name" type="text" placeholder="Название">
+        <input class="popup__description popup__description_add" name="card-link" type="text" placeholder="Ссылка на картинку">
+        <button class="popup__submit-button popup__submit-button_add" type="submit"></button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_image">
+      <div class="popup__container popup_image_po">
+      <img src="">
+      </div>
+    </div>
+    <template class="place-template">
+      <li class="place">
+        <img
+          class="place__image"
+          alt="Фотокарточка"
+          src="./images/Karavhaevsk-1.png"
+       >
+       <button class="profile__trash-button" type="button"></button>
+        <div class="place__name">
+          <h2 class="place__text">Карачаевск</h2>
+          <button class="place__heart opacity" type="button"></button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
