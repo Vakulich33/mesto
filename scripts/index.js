@@ -12,13 +12,16 @@ const modalWindowAdd = document.querySelector(".popup_add");
 const closeAddButton = document.querySelector(".popup__close_add");
 const namePlace = document.querySelector(".popup__name_add");
 const linkPlace = document.querySelector(".popup__description_add")
-const placeText = document.querySelector(".place__text");
-const placeImage = document.querySelector(".place__image");
-const popupImage = document.querySelector(".popup_image");
+const popupImage = document.querySelector(".popup__image");
 const deleteButton = document.querySelector(".profile__trash-button");
 const placeTemple = document.querySelector(".place-template");
 const emptyHeart = document.querySelectorAll(".place__heart");
 const ulList = document.querySelector(".places");
+const submitFormAdd = document.querySelector(".popup__form_add");
+const popupImageText = document.querySelector(".popup__image-text")
+const popupImagePic = document.querySelector(".popup__image-picture");
+const closeButtonImage = document.querySelector(".popup__close_image");
+const imageText = document.querySelector(".popup__image-text");
 const initialCards = [
   {
     name: 'Архыз',
@@ -52,7 +55,7 @@ function openPopup(modalWindow) {
   descripInput.value = descripProfile.textContent;
 };
   function closePopup (modalWindow) {
-    modalWindow.classList.remove("popup_active");
+  modalWindow.classList.remove("popup_active");
 };
 
 function onSubmit(e) {
@@ -61,7 +64,6 @@ function onSubmit(e) {
   descripProfile.textContent = descripInput.value;
   closePopup(modalWindow);
 }
-
 function renderCard (data) {
   data.forEach(getCard);
 }
@@ -74,52 +76,35 @@ function getCard(item) {
   placeElement.querySelector(".profile__trash-button").addEventListener("click", function(evt) {
   const deleteItem = evt.target.closest(".place");
   deleteItem.remove();
- }); 
- text.textContent = item.name
- image.src = item.link
- ulList.append(placeElement);
+  });
+  image.alt = text.textContent
+  text.textContent = item.name
+  image.src = item.link
+  image.addEventListener("click", (evt) => {
+  openPopup(popupImage)
+  popupImagePic.src = `${evt.target.src}`;
+  imageText.textContent = `${evt.target.alt}`;
+  popupImagePic.alt = `${evt.target.alt}`;
+   });
+  ulList.prepend(placeElement);
   return placeElement
 };
-
 
 function addCard(e) {
   e.preventDefault();
   let name = namePlace.value;
   let link = linkPlace.value;
   getCard({name, link});
+  closePopup(modalWindowAdd);
 }
 
 
-
 renderCard(initialCards);
-addButtonSubmit.addEventListener("submit", addCard);
+
+closeButtonImage.addEventListener("click", () => closePopup(popupImage));
+submitFormAdd.addEventListener("submit", addCard);
 closeAddButton.addEventListener("click", () => {closePopup(modalWindowAdd)});
 addButton.addEventListener("click",() => {openPopup(modalWindowAdd)});
 myForm.addEventListener("submit", onSubmit);
 closeButton.addEventListener("click", () => {closePopup(modalWindow)});
 profileEdit.addEventListener("click", () => {openPopup(modalWindow)});
-
-//  placeElement.querySelector(".place__heart").addEventListener("click", function(evt) {evt.target.classList.toggle("place__heart_black")}); // Лайк
-//placeElement.querySelector(".profile__trash-button").addEventListener("click", function(evt) {
- // const deleteItem = evt.target.closest(".place");
- // deleteItem.remove();
- // }); 
-
-
-//function renderCard(item) {
- // const cards = initialCards.forEach(getCard());
- // getCard({name:namePlace.value, link:linkPlace.value});
- // ulList.append(placeElement); //добавление карточек 
-//};
-
-//function getCard(item) {
-  //const placeElement = placeTemple.cloneNode(true);
-  //const image = placeElement.querySelector(".place__image");
-  //const text = placeElement.querySelector(".place__text");
-  //image.src = item.link
- // text.textContent = item.name
-// удаление
-
- // return placeElement
-//};
-//renderCard();
