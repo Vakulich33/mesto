@@ -1,7 +1,5 @@
 .popup__container_image {
     background-image: url();
-    max-width: 75vh;
-    max-height: 75vh;
     margin: 5% auto;
     max-width: 60vw;
     max-height: 80vh;
