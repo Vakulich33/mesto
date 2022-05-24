@@ -18,10 +18,10 @@ const placeTemple = document.querySelector(".place-template");
 const emptyHeart = document.querySelectorAll(".place__heart");
 const ulList = document.querySelector(".places");
 const submitFormAdd = document.querySelector(".popup__form_add");
-const popupImageText = document.querySelector(".popup_image-text")
-const popupImagePic = document.querySelector(".popup_image-picture");
+const popupImageText = document.querySelector(".popup__text")
+const popupImagePic = document.querySelector(".popup__picture");
 const closeButtonImage = document.querySelector(".popup__close_image");
-const imageText = document.querySelector(".popup_image-text");
+const imageText = document.querySelector(".popup__place");
 const initialCards = [
   {
     name: 'Архыз',
