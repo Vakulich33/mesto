@@ -33,7 +33,7 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__text">Редактировать профиль</h2>
-      <form name="submit-form" method="post">
+      <form class="popup__form name="submit-form" method="post">
         <input class="popup__name" name="profile-name" type="text" placeholder="Имя">
         <input class="popup__description" name="profile-description" type="text" placeholder="О себе">
         <button class="popup__submit-button" type="submit"></button>
@@ -44,7 +44,7 @@
     <div class="popup__container popup__container_add">
       <button class="popup__close popup__close_add" type="button"></button>
       <h2 class="popup__text popup__text_add">Новое место</h2>
-      <form class="popup__form_add" name="submit-form_add" method="post">
+      <form class="popup__form popup__form_add" name="submit-form_add" method="post">
         <input class="popup__name popup__name_add" name="card-name" type="text" placeholder="Название">
         <input class="popup__description popup__description_add" name="card-link" type="text"
           placeholder="Ссылка на картинку">
@@ -52,11 +52,11 @@
       </form>
     </div>
   </div>
-  <div class="popup popup__image">
+  <div class="popup popup_image">
     <div class="popup__container popup__container_image">
       <button class="popup__close popup__close_image" type="button"></button>
-      <img class="popup__image-picture" alt="" src="#">
-      <h2 class="popup__image-text"></h2>
+      <img class="popup_image-picture" alt="" src="#">
+      <h2 class="popup_image-text"></h2>
     </div>
   </div>
     <template class="place-template">

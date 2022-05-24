@@ -3,3 +3,6 @@
   min-height: 282px;
   max-width: 282px;
 }
+.place__image:hover {
+  cursor: pointer;
+}
