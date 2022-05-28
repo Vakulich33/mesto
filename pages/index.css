@@ -1,5 +1,5 @@
 @import url(../vendor/normalize.css);
-@import url(../fonts/fonts.css);
+@import url(../vendor/fonts/fonts.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -27,8 +27,8 @@
 @import url(../blocks/popup/__sumbit-button/popup__sumbit-button.css);
 @import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/__close/popup__close.css);
-@import url(../blocks/image/popup__image.css);
-@import url(../blocks/image/__container/popup__container_image.css);
-@import url(../blocks/image/__picture/popup__picture.css);
-@import url(../blocks/image/__place/popup__place.css);
+@import url(../blocks/popup/_image/popup_image.css);
+@import url(../blocks/popup/_image/__container/popup__container_image.css);
+@import url(../blocks/popup/_image/__picture/popup__picture.css);
+@import url(../blocks/popup/_image/__place/popup__place.css);
 @import url(../blocks/opacity/opacity.css);

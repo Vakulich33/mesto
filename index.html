@@ -34,8 +34,8 @@
       <button class="popup__close" type="button"></button>
       <h2 class="popup__text">Редактировать профиль</h2>
       <form class="popup__form" name="submit-form" method="post">
-        <input class="popup__name" name="profile-name" type="text" placeholder="Имя">
-        <input class="popup__description" name="profile-description" type="text" placeholder="О себе">
+        <input required  class="popup__name" name="profile-name" type="text" placeholder="Имя">
+        <input required  class="popup__description" name="profile-description" type="text" placeholder="О себе">
         <button class="popup__submit-button" type="submit"></button>
       </form>
     </div>
@@ -45,8 +45,14 @@
       <button class="popup__close popup__close_add" type="button"></button>
       <h2 class="popup__text popup__text_add">Новое место</h2>
       <form class="popup__form popup__form_add" name="submit-form_add" method="post">
-        <input class="popup__name popup__name_add" name="card-name" type="text" placeholder="Название">
-        <input class="popup__description popup__description_add" name="card-link" type="text"
+        <input required 
+          class="popup__name popup__name_add" 
+          name="card-name" 
+          type="text" 
+          placeholder="Название">
+        <input required class="popup__description popup__description_add"
+          name="card-link" 
+          type="url"
           placeholder="Ссылка на картинку">
         <button class="popup__submit-button popup__submit-button_add" type="submit"></button>
       </form>
