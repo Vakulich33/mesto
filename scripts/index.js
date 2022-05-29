@@ -73,23 +73,23 @@ function getCard(item) {
   const placeElement = placeTemple.content.cloneNode(true);
   const image = placeElement.querySelector(".place__image");
   const text = placeElement.querySelector(".place__text");
-  placeElement.querySelector(".place__heart").addEventListener("click", function (evt) { evt.target.classList.toggle("place__heart_black") }); // Лайк
+  placeElement.querySelector(".place__heart").addEventListener("click",  (evt) => { evt.target.classList.toggle("place__heart_black") }); // Лайк
   placeElement.querySelector(".profile__trash-button").addEventListener("click", function (evt) {
-    const deleteItem = evt.target.closest(".place");
-    deleteItem.remove();
+  const deleteItem = evt.target.closest(".place");
+  deleteItem.remove();
   });
   image.alt = text.textContent
   text.textContent = item.name
   image.src = item.link
-  image.addEventListener("click", (evt) => {
-    openPopup(popupImage)
-    popupImagePic.src = evt.target.src
-    imageText.textContent = text
-    popupImagePic.alt = evt.target.alt
-  });
+  image.addEventListener("click",  (evt) => {openImage(item)});
   return placeElement
 };
-
+function openImage(item) {
+  openPopup(popupImage)
+  popupImagePic.src = item.link
+  imageText.textContent = item.name
+  popupImagePic.alt = item.name
+}
 function addCard(e) {
   e.preventDefault();
   const name = namePlace.value;
@@ -108,4 +108,7 @@ closeButtonAdd.addEventListener("click", () => { closePopup(modalWindowAdd) });
 buttonAdd.addEventListener("click", () => { openPopup(modalWindowAdd) });
 myForm.addEventListener("submit", onSubmit);
 buttonClose.addEventListener("click", () => { closePopup(modalWindow) });
-profileEdit.addEventListener("click", () => { nameInput.value = nameProfile.textContent; descripInput.value = descripProfile.textContent; openPopup(modalWindow) });
+profileEdit.addEventListener("click", () => {
+  nameInput.value = nameProfile.textContent;
+  descripInput.value = descripProfile.textContent;
+  openPopup(modalWindow) });
