@@ -21,12 +21,17 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_add/popup__container_add.css);
 @import url(../blocks/popup/__description/popup__description.css);
 @import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/popup/__name/_error/popup__name_error.css);
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__sumbit-button/popup__sumbit-button.css);
+@import url(../blocks/popup/popup__button_invalid/popup__button_invalid.css);
 @import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__submit_inactive/form__submit_inactive.css);
 @import url(../blocks/popup/_image/popup_image.css);
 @import url(../blocks/popup/_image/__container/popup__container_image.css);
 @import url(../blocks/popup/_image/__picture/popup__picture.css);

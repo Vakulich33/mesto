@@ -22,6 +22,7 @@ const popupImageText = document.querySelector(".popup__text")
 const popupImagePic = document.querySelector(".popup__picture");
 const buttonCloseImage = document.querySelector(".popup__close_image");
 const imageText = document.querySelector(".popup__place");
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -52,6 +53,7 @@ const initialCards = [
 function openPopup(modalWindow) {
   modalWindow.classList.add("popup_active")
 };
+
 function closePopup(modalWindow) {
   modalWindow.classList.remove("popup_active");
 };
@@ -73,23 +75,25 @@ function getCard(item) {
   const placeElement = placeTemple.content.cloneNode(true);
   const image = placeElement.querySelector(".place__image");
   const text = placeElement.querySelector(".place__text");
-  placeElement.querySelector(".place__heart").addEventListener("click",  (evt) => { evt.target.classList.toggle("place__heart_black") }); // Лайк
+  placeElement.querySelector(".place__heart").addEventListener("click", (evt) => { evt.target.classList.toggle("place__heart_black") });
   placeElement.querySelector(".profile__trash-button").addEventListener("click", function (evt) {
-  const deleteItem = evt.target.closest(".place");
-  deleteItem.remove();
+    const deleteItem = evt.target.closest(".place");
+    deleteItem.remove();
   });
   image.alt = text.textContent
   text.textContent = item.name
   image.src = item.link
-  image.addEventListener("click",  (evt) => {openImage(item)});
+  image.addEventListener("click", (evt) => { openImage(item) });
   return placeElement
 };
+
 function openImage(item) {
   openPopup(popupImage)
   popupImagePic.src = item.link
   imageText.textContent = item.name
   popupImagePic.alt = item.name
 }
+
 function addCard(e) {
   e.preventDefault();
   const name = namePlace.value;
@@ -98,8 +102,17 @@ function addCard(e) {
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
 }
-
-
+function handleEscape(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(modalWindow);
+  }
+};
+function handleOverlay(evt){
+  const popupOpen = document.querySelector('.popup');
+  if(evt.target === popupOpen) {
+    closePopup(modalWindow);
+  }
+};
 renderItem(initialCards);
 
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));
@@ -111,4 +124,8 @@ buttonClose.addEventListener("click", () => { closePopup(modalWindow) });
 profileEdit.addEventListener("click", () => {
   nameInput.value = nameProfile.textContent;
   descripInput.value = descripProfile.textContent;
-  openPopup(modalWindow) });
+  openPopup(modalWindow)
+});
+
+document.addEventListener('keydown', handleEscape);
+document.addEventListener('mousedown', handleOverlay)
