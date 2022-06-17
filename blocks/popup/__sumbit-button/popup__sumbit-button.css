@@ -1,4 +1,7 @@
 .popup__submit-button {
+  position: absolute;
+  left: 0px;
+  top: 210px;
   color: white;
   background-color: black;
   min-width: 358px;

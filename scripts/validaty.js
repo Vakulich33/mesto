@@ -1,8 +1,3 @@
-const formElement = document.querySelector(".popup__form");
-const formInput = formElement.querySelector(".popup__name");
-const formError = formElement.querySelector(`.${formInput.id}-error`);
-
-
 function showInputError(formElement, inputElement, errorMessage) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('popup__error');
@@ -55,22 +50,19 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('popup__button_invalid');
-    buttonElement.setAttribute('disabled' , true)
+    buttonElement.setAttribute('disabled', true)
   } else {
     buttonElement.classList.remove('popup__button_invalid')
     buttonElement.removeAttribute('disabled')
   }
 };
-formElement.addEventListener('submit', function (evt) {
-  evt.preventDefault
-})
 
-enableValidation({
+const fromSettings = {
   formElement: '.popup__form',
   formInput: '.popup__name',
   buttonElement: '.popup__submit-button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: '.form__submit_inactive',
   errorElement: '.popup__error'
-}); 
-formElement.addEventListener('input', isValid);
+}
+enableValidation(fromSettings);
