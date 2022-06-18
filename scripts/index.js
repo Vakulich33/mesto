@@ -22,7 +22,7 @@ const popupImageText = document.querySelector(".popup__text")
 const popupImagePic = document.querySelector(".popup__picture");
 const buttonCloseImage = document.querySelector(".popup__close_image");
 const imageText = document.querySelector(".popup__place");
-
+popupElement = document.querySelector('.popup_active')
 const initialCards = [
   {
     name: 'Архыз',
@@ -106,6 +106,7 @@ function addCard(e) {
   submitFormAdd.reset();
 }
 function handleEscape(evt) {
+  popupElement = document.querySelector('.popup_active')
   if (evt.key === 'Escape') {
     closePopup(popupElement);
   }
