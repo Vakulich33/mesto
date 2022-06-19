@@ -10,8 +10,8 @@ const buttonAdd = document.querySelector('.profile__add-button');
 const buttonAddSubmit = document.querySelector('.popup__submit-button_add');
 const modalWindowAdd = document.querySelector(".popup_add");
 const closeButtonAdd = document.querySelector(".popup__close_add");
-const namePlace = document.querySelector(".popup__name_add");
-const linkPlace = document.querySelector(".popup__name_add")
+const namePlace = document.querySelector(".popup__card-name");
+const linkPlace = document.querySelector(".popup__url-input")
 const popupImage = document.querySelector(".popup_image");
 const buttonDelete = document.querySelector(".profile__trash-button");
 const placeTemple = document.querySelector(".place-template");
@@ -57,7 +57,7 @@ function openPopup(modalWindow) {
 
 function closePopup(modalWindow) {
   modalWindow.classList.remove("popup_active");
-  document.removeEventListener("keydown", handleEscape); 
+  document.removeEventListener("keydown", handleEscape);
 };
 
 function onSubmit(e) {
@@ -82,7 +82,7 @@ function getCard(item) {
     const deleteItem = evt.target.closest(".place");
     deleteItem.remove();
   });
-  image.alt = text.textContent
+  image.alt = item.name
   text.textContent = item.name
   image.src = item.link
   image.addEventListener("click", (evt) => { openImage(item) });
@@ -102,7 +102,6 @@ function addCard(e) {
   const link = linkPlace.value;
   renderCard(getCard({ name, link }));
   closePopup(modalWindowAdd);
-  console.log(linkPlace.value)
   submitFormAdd.reset();
 }
 function handleEscape(evt) {
@@ -118,7 +117,7 @@ function handleOverlay(evt) {
   }
 };
 renderItem(initialCards);
-document.addEventListener('mousedown', handleOverlay) 
+document.addEventListener('mousedown', handleOverlay)
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));
 submitFormAdd.addEventListener("submit", addCard);
 closeButtonAdd.addEventListener("click", () => { closePopup(modalWindowAdd) });
