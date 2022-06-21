@@ -51,6 +51,8 @@ const initialCards = [
 ];
 
 function openPopup(modalWindow) {
+  const form = document.querySelector('.popup__form')
+  hideInputError(form, nameInput)
   modalWindow.classList.add("popup_active");
   document.addEventListener('keydown', handleEscape);
 };
