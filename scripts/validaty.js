@@ -7,11 +7,9 @@ function showInputError(formElement, inputElement, errorMessage) {
 
 function hideInputError(formElement, inputElement) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-console.log(errorElement);
-console.log(inputElement);
   inputElement.classList.remove('popup__error');
   errorElement.classList.remove('form__input-error_active');
-  errorElement.textContent = ''
+  errorElement.textContent = '';
 }
 
 const isValid = (formElement, inputElement) => {

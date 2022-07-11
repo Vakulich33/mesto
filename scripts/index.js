@@ -48,14 +48,19 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   }
 ];
+function resetField() {
+  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  formList.forEach((form) => {
+    const inputList = Array.from(form.querySelectorAll('.popup__name'))
+    inputList.forEach((input) => {
+    hideInputError(form, input);
+  });
+  });
+}
 function openPopup(modalWindow) {
-  const form = document.querySelector('.popup__form');
-  const inputList = Array.from(document.querySelectorAll('.popup__name'));
   buttonAddSubmit.classList.add('popup__button_invalid');
-  buttonAddSubmit.setAttribute('disabled', true)
-  inputList.forEach(() => {
-    hideInputError(form, nameInput);
-  })
+  buttonAddSubmit.setAttribute('disabled', true);
+  resetField();
   modalWindow.classList.add("popup_active");
   document.addEventListener('keydown', handleEscape);
 };
