@@ -7,6 +7,8 @@ function showInputError(formElement, inputElement, errorMessage) {
 
 function hideInputError(formElement, inputElement) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+console.log(errorElement);
+console.log(inputElement);
   inputElement.classList.remove('popup__error');
   errorElement.classList.remove('form__input-error_active');
   errorElement.textContent = ''
@@ -57,7 +59,13 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.removeAttribute('disabled')
   }
 };
-
+function handlerInputForm(e) {
+  const form = e.currentTarget;
+  const submitButton = form.querySelector('.popup__submit-button')
+  if (form.checkValidity()) {
+    submitButton.classList.add('')
+  }
+};
 const fromSettings = {
   formElement: '.popup__form',
   formInput: '.popup__name',

@@ -22,7 +22,6 @@ const popupImageText = document.querySelector(".popup__text")
 const popupImagePic = document.querySelector(".popup__picture");
 const buttonCloseImage = document.querySelector(".popup__close_image");
 const imageText = document.querySelector(".popup__place");
-popupElement = document.querySelector('.popup_active')
 const initialCards = [
   {
     name: 'Архыз',
@@ -49,12 +48,13 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   }
 ];
-
 function openPopup(modalWindow) {
   const form = document.querySelector('.popup__form');
   const inputList = Array.from(document.querySelectorAll('.popup__name'));
+  buttonAddSubmit.classList.add('popup__button_invalid');
+  buttonAddSubmit.setAttribute('disabled', true)
   inputList.forEach(() => {
-    hideInputError(form, nameInput)
+    hideInputError(form, nameInput);
   })
   modalWindow.classList.add("popup_active");
   document.addEventListener('keydown', handleEscape);
