@@ -7,6 +7,7 @@ const descripInput = document.querySelector(".popup__description");
 const nameProfile = document.querySelector(".profile__name");
 const descripProfile = document.querySelector(".profile__description");
 const buttonAdd = document.querySelector('.profile__add-button');
+const buttonEdit = document.querySelector('.popup__submit-button');
 const buttonAddSubmit = document.querySelector('.popup__submit-button_add');
 const modalWindowAdd = document.querySelector(".popup_add");
 const closeButtonAdd = document.querySelector(".popup__close_add");
@@ -121,9 +122,8 @@ function handleEscape(evt) {
   }
 };
 function handleOverlay(evt) {
-  popupElement = document.querySelector('.popup_active')
-  if (evt.target === popupElement) {
-    closePopup(popupElement);
+  if (evt.target === evt.target) {
+    closePopup(evt.target);
   }
 };
 renderItem(initialCards);
@@ -135,6 +135,8 @@ buttonAdd.addEventListener("click", () => { openPopup(modalWindowAdd) });
 myForm.addEventListener("submit", onSubmit);
 buttonClose.addEventListener("click", () => { closePopup(modalWindow) });
 profileEdit.addEventListener("click", () => {
+  buttonEdit.classList.remove('popup__button_invalid')
+  buttonEdit.removeAttribute('disabled')
   nameInput.value = nameProfile.textContent;
   descripInput.value = descripProfile.textContent;
   openPopup(modalWindow)
