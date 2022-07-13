@@ -58,7 +58,7 @@ function resetField() {
   });
 }
 function openPopup(modalWindow) {
-  resetPopup()
+  resetPopup();
   modalWindow.classList.add("popup_active");
   document.addEventListener('keydown', handleEscape);
 };

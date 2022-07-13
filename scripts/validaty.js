@@ -1,3 +1,12 @@
+const fromSettings = {
+  formElement: '.popup__form',
+  formInput: '.popup__name',
+  buttonElement: '.popup__submit-button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: '.form__submit_inactive',
+  errorClass: '.popup__error'
+};
+
 function showInputError(formElement, inputElement, errorMessage) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('popup__error');
@@ -69,12 +78,5 @@ function handlerInputForm(e) {
     submitButton.classList.add('')
   }
 };
-const fromSettings = {
-  formElement: '.popup__form',
-  formInput: '.popup__name',
-  buttonElement: '.popup__submit-button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: '.form__submit_inactive',
-  errorElement: '.popup__error'
-}
+
 enableValidation(fromSettings);
