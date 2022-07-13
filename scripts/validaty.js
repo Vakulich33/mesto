@@ -11,6 +11,11 @@ function hideInputError(formElement, inputElement) {
   errorElement.classList.remove('form__input-error_active');
   errorElement.textContent = '';
 }
+function resetPopup() {
+  buttonAddSubmit.classList.add('popup__button_invalid');
+  buttonAddSubmit.setAttribute('disabled', true);
+  resetField();
+}
 
 const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
@@ -35,6 +40,9 @@ const setEventListeners = (formElement) => {
 const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(".popup__form"));
   formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
     setEventListeners(formElement)
   });
 };
@@ -52,6 +60,13 @@ const toggleButtonState = (inputList, buttonElement) => {
   } else {
     buttonElement.classList.remove('popup__button_invalid')
     buttonElement.removeAttribute('disabled')
+  }
+};
+function handlerInputForm(e) {
+  const form = e.currentTarget;
+  const submitButton = form.querySelector('.popup__submit-button')
+  if (form.checkValidity()) {
+    submitButton.classList.add('')
   }
 };
 const fromSettings = {
