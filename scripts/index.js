@@ -50,6 +50,7 @@ const initialCards = [
   }
 ];
 function resetField() {
+  
   const formList = Array.from(document.querySelectorAll('.popup__form'));
   formList.forEach((form) => {
     const inputList = Array.from(form.querySelectorAll('.popup__name'))
@@ -59,7 +60,6 @@ function resetField() {
   });
 }
 function openPopup(modalWindow) {
-  resetPopup();
   modalWindow.classList.add("popup_active");
   document.addEventListener('keydown', handleEscape);
 };
@@ -110,8 +110,10 @@ function addCard(e) {
   const name = namePlace.value;
   const link = linkPlace.value;
   renderCard(getCard({ name, link }));
+  resetPopup();
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
+  submitFormAdd.setAttribute('disabled', true)
 }
 function handleEscape(evt) {
   popupElement = document.querySelector('.popup_active')
@@ -120,7 +122,6 @@ function handleEscape(evt) {
   }
 };
 function handleOverlay(evt) {
-  popupElement = document.querySelector('.popup_active')
   if (evt.target === evt.target) {
     closePopup(evt.target);
   }
@@ -134,6 +135,7 @@ buttonAdd.addEventListener("click", () => { openPopup(modalWindowAdd) });
 myForm.addEventListener("submit", onSubmit);
 buttonClose.addEventListener("click", () => { closePopup(modalWindow) });
 profileEdit.addEventListener("click", () => {
+  resetPopup();
   buttonEdit.classList.remove('popup__button_invalid')
   buttonEdit.removeAttribute('disabled')
   nameInput.value = nameProfile.textContent;
