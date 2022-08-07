@@ -74,5 +74,12 @@ const hasInvalidInput = (inputList) => {
 
 enableValidation(fromSettings); 
 
-
-
+function renderElements(isGrid) {
+  cardList.innerHTML = ''
+ items.forEach((item) => {
+  const card = isGrid
+  ? new DefaultCard(item, '.default-card')
+  : new HorizontalCard(item, '.horizontal-card')
+  const cardElement = card.generateCard();
+  document.querySelector('.card-list__items').append(cardElement);})
+};
