@@ -135,10 +135,6 @@ class Card {
   }
 }
 
-// function renderItem(data) {
-//   data.forEach((item) => renderCard(getCard(item)));
-// }
-
 initialCards.forEach((data) => {
   const card = new Card(data, ".place-template");
   const cardElement = card.generateCard();
@@ -149,9 +145,9 @@ function addCard(e) {
   e.preventDefault();
   const inputName = document.querySelector(".popup__card-name").value;
   const inputLink = document.querySelector(".popup__url-input").value;
-  const card = new Card(inputName, ".place-template");
-  renderCard(card.generateCard({ inputName, inputLink }));
-  // resetPopup();
+  const card = new Card(data, ".place-template");
+  renderCard(card.generateCard(inputName, inputLink));
+  resetPopup();
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
   submitFormAdd.setAttribute("disabled", true);
