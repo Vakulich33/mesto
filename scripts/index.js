@@ -145,9 +145,9 @@ function addCard(e) {
   e.preventDefault();
   const inputName = document.querySelector(".popup__card-name").value;
   const inputLink = document.querySelector(".popup__url-input").value;
-  const card = new Card(data, ".place-template");
+  const card = new Card(inputName, ".place-template");
   renderCard(card.generateCard(inputName, inputLink));
-  resetPopup();
+  // resetPopup();
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
   submitFormAdd.setAttribute("disabled", true);

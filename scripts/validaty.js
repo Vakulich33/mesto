@@ -59,7 +59,7 @@ class FormValidation {
       inputElement.addEventListener("input", () => {
         this._isValid(inputElement);
 
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState();
       });
     });
   };
@@ -68,9 +68,9 @@ class FormValidation {
     this._setEventListeners();
   }
   _hasInvalidInput = () => {
-    return this._inputList.checkValidity((inputElement) => {
-      return !inputElement.validity.valid;
-    });
+    if (this._inputList.checkValidity) {
+      return true;
+    }
   };
 
   _toggleButtonState = (inputList, buttonSubmit) => {
