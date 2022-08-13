@@ -1,16 +1,5 @@
-export { FormValidation, fromSettings };
-const fromSettings = {
-  popupForm: ".popup__form",
-  formInput: ".popup__name",
-  buttonSubmit: ".popup__submit-button",
-  inactiveButtonClass: "popup__button_invalid",
-  inputErrorClass: "popup__error",
-  errorClass: "popup__error_text",
-};
-
-const Popup = document.querySelector(".popup__form");
-const Popupadd = document.querySelector(".popup__form_add");
-class FormValidation {
+export { FormValidator };
+class FormValidator {
   constructor(data, formElement) {
     this._popupForm = data.popupForm;
     this._formInput = data.formInput;
@@ -65,14 +54,11 @@ class FormValidation {
   };
 
   resetField() {
-    _toggleButtonState();
-    const formList = Array.from(
-      this._formElement.querySelectorAll(this._popupForm)
-    );
+    this._toggleButtonState();
+    const formList = this._formElement.querySelectorAll(this._popupForm);
     formList.forEach((form) => {
-      const inputList = Array.from(form.querySelectorAll(this._formInput));
-      inputList.forEach((input) => {
-        _hideInputError(form, input);
+      this._inputList.forEach((input) => {
+        this._hideInputError(form, input);
       });
     });
   }
@@ -88,8 +74,3 @@ class FormValidation {
     }
   }
 }
-
-const validationEdit = new FormValidation(fromSettings, Popup);
-const validationAdd = new FormValidation(fromSettings, Popupadd);
-validationEdit.enableValidation();
-validationAdd.enableValidation();

@@ -1,7 +1,17 @@
 import { Card } from "./card.js";
 import { initialCards } from "./initil.js";
-import { FormValidation, fromSettings } from "./validaty.js";
+import { FormValidator } from "./validaty.js";
 
+const fromSettings = {
+  popupForm: ".popup__form",
+  formInput: ".popup__name",
+  buttonSubmit: ".popup__submit-button",
+  inactiveButtonClass: "popup__button_invalid",
+  inputErrorClass: "popup__error",
+  errorClass: "popup__error_text",
+};
+const popup = document.querySelector(".popup__form");
+const popupAdd = document.querySelector(".popup__form_add");
 const profileEdit = document.querySelector(".profile__edit-button");
 const modalWindow = document.querySelector(".popup");
 const buttonClose = modalWindow.querySelector(".popup__close");
@@ -16,14 +26,12 @@ const modalWindowAdd = document.querySelector(".popup_add");
 const closeButtonAdd = document.querySelector(".popup__close_add");
 const popupImage = document.querySelector(".popup_image");
 const places = document.querySelector(".places");
-// const template = document.querySelector(".place-template");
-// const image = template.querySelector(".place");
-
-// console.log(image);
 const submitFormAdd = document.querySelector(".popup__form_add");
 const popupImagePic = document.querySelector(".popup__picture");
 const buttonCloseImage = document.querySelector(".popup__close_image");
 const imageText = document.querySelector(".popup__place");
+const validationEdit = new FormValidator(fromSettings, popup);
+const validationAdd = new FormValidator(fromSettings, popupAdd);
 
 export function openPopup(modalWindow) {
   modalWindow.classList.add("popup_active");
@@ -53,7 +61,6 @@ initialCards.forEach((data) => {
 
 function addCard(e) {
   e.preventDefault();
-  const image = document.querySelector(".place__image");
   const name = document.querySelector(".popup__card-name").value;
   const link = document.querySelector(".popup__url-input").value;
   const card = new Card({ name, link }, ".place-template");
@@ -61,12 +68,13 @@ function addCard(e) {
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
   submitFormAdd.setAttribute("disabled", true);
-  card._toggleButtonState();
-  card.resetField();
+  validationAdd._toggleButtonState();
+  validationEdit.resetField();
+  console.log(validationEdit.resetField());
 }
 function handleEscape(evt) {
-  popupElement = document.querySelector(".popup_active");
   if (evt.key === "Escape") {
+    popupElement = document.querySelector(".popup_active");
     closePopup(popupElement);
   }
 }
@@ -75,12 +83,10 @@ function handleOverlay(evt) {
     closePopup(evt.target);
   }
 }
-function openImage(item) {
-  openPopup(popupImage);
-  popupImagePic.src = item.link;
-  imageText.textContent = item.name;
-  popupImagePic.alt = item.name;
-}
+
+validationEdit.enableValidation();
+validationAdd.enableValidation();
+
 document.addEventListener("mousedown", handleOverlay);
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));
 submitFormAdd.addEventListener("submit", addCard);
@@ -88,16 +94,15 @@ closeButtonAdd.addEventListener("click", () => {
   closePopup(modalWindowAdd);
 });
 buttonAdd.addEventListener("click", () => {
+  validationEdit.resetField();
   openPopup(modalWindowAdd);
 });
 myForm.addEventListener("submit", onSubmit);
 buttonClose.addEventListener("click", () => {
   closePopup(modalWindow);
 });
-// image.addEventListener("click", () => {
-//   openImage(item);
-// });
 profileEdit.addEventListener("click", () => {
+  validationEdit.resetField();
   buttonEdit.classList.remove("popup__button_invalid");
   buttonEdit.removeAttribute("disabled");
   nameInput.value = nameProfile.textContent;
