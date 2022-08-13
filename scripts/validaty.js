@@ -59,7 +59,12 @@ class FormValidator {
       this._hideInputError(input);
     });
   }
-  toggleButtonState() {}
+  toggleButtonState() {
+    if (this._formElement.checkValidity()) {
+      button.classList.add(this._inactiveButtonClass);
+      button.disabled = true;
+    }
+  }
   _toggleButtonState() {
     const button = this._formElement.querySelector(this._buttonSubmit);
     if (this._formElement.checkValidity()) {

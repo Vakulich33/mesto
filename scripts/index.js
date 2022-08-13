@@ -67,13 +67,13 @@ function addCard(e) {
   renderCard(card.generateCard({ name, link }));
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
-  validationAdd._toggleButtonState();
+  validationAdd.toggleButtonState();
   validationEdit.resetField();
-  console.log(validationEdit.resetField());
 }
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    closePopup(modalWindow);
+    const popupActive = document.querySelector(".popup_active");
+    closePopup(popupActive);
   }
 }
 function handleOverlay(evt) {
@@ -104,8 +104,6 @@ buttonClose.addEventListener("click", () => {
 });
 profileEdit.addEventListener("click", () => {
   validationEdit.resetField();
-  buttonEdit.classList.remove("popup__button_invalid");
-  buttonEdit.removeAttribute("disabled");
   nameInput.value = nameProfile.textContent;
   descripInput.value = descripProfile.textContent;
   openPopup(modalWindow);
