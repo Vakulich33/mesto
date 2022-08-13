@@ -54,17 +54,20 @@ function renderCard(placeElement) {
 }
 
 initialCards.forEach((data) => {
-  const card = new Card(data, ".place-template");
-  const cardElement = card.generateCard();
-  places.append(cardElement);
+  const card = createCard(data, ".place-template");
+  places.append(card);
 });
-
+function createCard(data, formElement) {
+  const card = new Card(data, formElement);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
 function addCard(e) {
   e.preventDefault();
   const name = document.querySelector(".popup__card-name").value;
   const link = document.querySelector(".popup__url-input").value;
-  const card = new Card({ name, link }, ".place-template");
-  renderCard(card.generateCard({ name, link }));
+  const altImage = document.querySelector(".popup__card-name").value;
+  renderCard(createCard({ name, link }, ".place-template"));
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
   validationAdd.toggleButtonState();
@@ -95,6 +98,7 @@ closeButtonAdd.addEventListener("click", () => {
 });
 buttonAdd.addEventListener("click", () => {
   validationAdd.resetField();
+  validationAdd.toggleButtonState;
   openPopup(modalWindowAdd);
   submitFormAdd.reset();
 });
@@ -103,8 +107,9 @@ buttonClose.addEventListener("click", () => {
   closePopup(modalWindow);
 });
 profileEdit.addEventListener("click", () => {
-  validationEdit.resetField();
   nameInput.value = nameProfile.textContent;
   descripInput.value = descripProfile.textContent;
+  validationEdit.toggleButtonState();
+  validationEdit.resetField();
   openPopup(modalWindow);
 });
