@@ -10,6 +10,7 @@ const fromSettings = {
   inputErrorClass: "popup__error",
   errorClass: "popup__error_text",
 };
+const popupBack = document.querySelectorAll(".popup");
 const popup = document.querySelector(".popup__form");
 const popupAdd = document.querySelector(".popup__form_add");
 const profileEdit = document.querySelector(".profile__edit-button");
@@ -27,9 +28,8 @@ const closeButtonAdd = document.querySelector(".popup__close_add");
 const popupImage = document.querySelector(".popup_image");
 const places = document.querySelector(".places");
 const submitFormAdd = document.querySelector(".popup__form_add");
-const popupImagePic = document.querySelector(".popup__picture");
 const buttonCloseImage = document.querySelector(".popup__close_image");
-const imageText = document.querySelector(".popup__place");
+
 const validationEdit = new FormValidator(fromSettings, popup);
 const validationAdd = new FormValidator(fromSettings, popupAdd);
 
@@ -67,15 +67,13 @@ function addCard(e) {
   renderCard(card.generateCard({ name, link }));
   closePopup(modalWindowAdd);
   submitFormAdd.reset();
-  submitFormAdd.setAttribute("disabled", true);
   validationAdd._toggleButtonState();
   validationEdit.resetField();
   console.log(validationEdit.resetField());
 }
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    popupElement = document.querySelector(".popup_active");
-    closePopup(popupElement);
+    closePopup(modalWindow);
   }
 }
 function handleOverlay(evt) {
@@ -87,15 +85,18 @@ function handleOverlay(evt) {
 validationEdit.enableValidation();
 validationAdd.enableValidation();
 
-document.addEventListener("mousedown", handleOverlay);
+popupBack.forEach((popup) => {
+  popup.addEventListener("mousedown", handleOverlay);
+});
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));
 submitFormAdd.addEventListener("submit", addCard);
 closeButtonAdd.addEventListener("click", () => {
   closePopup(modalWindowAdd);
 });
 buttonAdd.addEventListener("click", () => {
-  validationEdit.resetField();
+  validationAdd.resetField();
   openPopup(modalWindowAdd);
+  submitFormAdd.reset();
 });
 myForm.addEventListener("submit", onSubmit);
 buttonClose.addEventListener("click", () => {

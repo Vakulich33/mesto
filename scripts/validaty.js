@@ -9,6 +9,7 @@ class FormValidator {
     this._errorClass = data.errorClass;
     this._formElement = formElement;
     this._inputList = this._formElement.querySelectorAll(this._formInput);
+    const button = this._formElement.querySelector(this._buttonSubmit);
   }
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
@@ -52,17 +53,13 @@ class FormValidator {
       return true;
     }
   };
-
   resetField() {
     this._toggleButtonState();
-    const formList = this._formElement.querySelectorAll(this._popupForm);
-    formList.forEach((form) => {
-      this._inputList.forEach((input) => {
-        this._hideInputError(form, input);
-      });
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
     });
   }
-
+  toggleButtonState() {}
   _toggleButtonState() {
     const button = this._formElement.querySelector(this._buttonSubmit);
     if (this._formElement.checkValidity()) {
