@@ -1,3 +1,4 @@
-.popup__error_text { 
-display: block;
+.popup__error_text {
+  display: block;
+  position: absolute;
 }

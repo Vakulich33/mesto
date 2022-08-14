@@ -10,7 +10,7 @@ const fromSettings = {
   inputErrorClass: "popup__error",
   errorClass: "popup__error_text",
 };
-const popupBack = document.querySelectorAll(".popup");
+const popups = document.querySelectorAll(".popup");
 const popup = document.querySelector(".popup__form");
 const popupAdd = document.querySelector(".popup__form_add");
 const profileEdit = document.querySelector(".profile__edit-button");
@@ -57,8 +57,8 @@ initialCards.forEach((data) => {
   const card = createCard(data, ".place-template");
   places.append(card);
 });
-function createCard(data, formElement) {
-  const card = new Card(data, formElement);
+function createCard(data, templateSelector) {
+  const card = new Card(data, templateSelector);
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -88,7 +88,7 @@ function handleOverlay(evt) {
 validationEdit.enableValidation();
 validationAdd.enableValidation();
 
-popupBack.forEach((popup) => {
+popups.forEach((popup) => {
   popup.addEventListener("mousedown", handleOverlay);
 });
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));

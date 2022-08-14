@@ -18,8 +18,9 @@ class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
-    this._element.querySelector(".place__image").src = this._link;
-    this._element.querySelector(".place__image").alt = this._name;
+    const image = this._element.querySelector(".place__image");
+    image.src = this._link;
+    image.alt = this._name;
     this._element.querySelector(".place__text").textContent = this._name;
     return this._element;
   }
@@ -34,8 +35,10 @@ class Card {
   }
   _imageOpen() {
     const popupImages = document.querySelector(".popup_image");
-    popupImages.querySelector(".popup__picture").src = this._link;
+    const popupPicture = popupImages.querySelector(".popup__picture");
+    popupPicture.src = this._link;
     popupImages.querySelector(".popup__place").textContent = this._name;
+    popupPicture.alt = this._alt;
     openPopup(popupImages);
   }
   _setEventListeners() {
