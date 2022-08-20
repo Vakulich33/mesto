@@ -1,0 +1,19 @@
+{
+  "name": "fernir",
+  "version": "1.0.0",
+  "description": "Проект Место в этой проекте была реализованная функция построяние сеток(гриды, флексбок), позже будет добавленна анимация лайка и так же можно будет добавлять свои карточки. ссылку на github pages (https://vakulich33.github.io/mesto/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vakulich33/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vakulich33/mesto/issues"
+  },
+  "homepage": "https://github.com/Vakulich33/mesto#readme"
+}

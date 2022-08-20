@@ -1,7 +1,7 @@
 import { Card } from "./card.js";
 import { initialCards } from "./initil.js";
 import { FormValidator } from "./validaty.js";
-
+import { Section } from "./section.js";
 const fromSettings = {
   popupForm: ".popup__form",
   formInput: ".popup__name",
@@ -53,26 +53,26 @@ function renderCard(placeElement) {
   places.prepend(placeElement);
 }
 
-initialCards.forEach((data) => {
-  const card = createCard(data, ".place-template");
-  places.append(card);
-});
+// initialCards.forEach((data) => {
+//   const card = createCard(data, ".place-template");
+//   places.append(card);
+// });
 function createCard(data, templateSelector) {
   const card = new Card(data, templateSelector);
   const cardElement = card.generateCard();
   return cardElement;
 }
-function addCard(e) {
-  e.preventDefault();
-  const name = document.querySelector(".popup__card-name").value;
-  const link = document.querySelector(".popup__url-input").value;
-  const altImage = document.querySelector(".popup__card-name").value;
-  renderCard(createCard({ name, link }, ".place-template"));
-  closePopup(modalWindowAdd);
-  submitFormAdd.reset();
-  validationAdd.toggleButtonState();
-  validationEdit.resetField();
-}
+// function addCard(e) {
+//   e.preventDefault();
+//   const name = document.querySelector(".popup__card-name").value;
+//   const link = document.querySelector(".popup__url-input").value;
+//   const altImage = document.querySelector(".popup__card-name").value;
+//   renderCard(createCard({ name, link }, ".place-template"));
+//   closePopup(modalWindowAdd);
+//   submitFormAdd.reset();
+//   validationAdd.toggleButtonState();
+//   validationEdit.resetField();
+// }
 function handleEscape(evt) {
   if (evt.key === "Escape") {
     const popupActive = document.querySelector(".popup_active");
@@ -84,6 +84,19 @@ function handleOverlay(evt) {
     closePopup(evt.target);
   }
 }
+function renderer(obj) {
+  const card = createCard(obj, ".place-template");
+  cardList.addItem(card);
+}
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer,
+  },
+  ".places"
+);
+
+cardList.renderItems();
 
 validationEdit.enableValidation();
 validationAdd.enableValidation();
@@ -92,7 +105,7 @@ popups.forEach((popup) => {
   popup.addEventListener("mousedown", handleOverlay);
 });
 buttonCloseImage.addEventListener("click", () => closePopup(popupImage));
-submitFormAdd.addEventListener("submit", addCard);
+// submitFormAdd.addEventListener("submit", addCard);
 closeButtonAdd.addEventListener("click", () => {
   closePopup(modalWindowAdd);
 });
